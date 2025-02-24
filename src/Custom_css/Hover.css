@@ -1,0 +1,71 @@
+.mBtn:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 0;
+    border-radius: 6px;
+    border-top: 1px solid green;
+    border-right: 1px solid green;
+    animation: border-bottom-left 0.4s ease-in-out forwards;
+
+}
+
+.mBtn:hover:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 0;
+    width: 0;
+    border-radius: 6px;
+    border-bottom: 1px solid green;
+    border-left: 1px solid green;
+    animation: border-bottom-left 0.4s ease-in-out forwards;
+
+}
+
+@keyframes border-top-right {
+    0% {
+        width: 0%;
+        height: 0%;
+    }
+
+    50% {
+        width: 50%;
+        height: 0%;
+    }
+
+    75% {
+        width: 100%;
+        height: 0%;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes border-bottom-left {
+    0% {
+        width: 0%;
+        height: 0%;
+    }
+
+    50% {
+        width: 50%;
+        height: 0%;
+    }
+
+    75% {
+        width: 100%;
+        height: 0%;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
