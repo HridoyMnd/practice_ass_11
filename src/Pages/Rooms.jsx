@@ -1,5 +1,3 @@
-
-
 const Rooms = () => {
     return (
         <div>
