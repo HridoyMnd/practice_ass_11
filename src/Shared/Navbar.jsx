@@ -28,51 +28,46 @@ const Navbar = () => {
                         </NavLink>
                         {/* All Room nav */}
                         <NavLink
+                            to="/rooms"
 
                             onMouseEnter={() => setShow_price(true)}
                             onMouseLeave={() => setShow_price(false)}
-                            className={`relative`}>
-                            <NavLink
-                                to="/rooms"
+                            className={({ isActive }) => `text-lg font-semibold duration-300 hover:text-lime-600 relative ${isActive ? 'text-lime-600' : ''}`}>
+                            Rooms
+                            {/* all price div */}
 
-                                className={({ isActive }) => `${isActive ? "text-lime-600" : ""} cursor-pointer text-lg font-semibold duration-300 overflow-hidden`}>
-                                All Rooms
-                            </NavLink>
-                            <ul
-                                className={`flex-col flex absolute w-32 border-lime-500 border-opacity-40 rounded-md duration-500 overflow-hidden ${show_price ? "space-y-4 py-4 border " : "-space-y-10 py-0"} -left-6`}>
-                                <NavLink
-                                    to="/rooms"
+                            <ul className={`flex-col flex absolute w-40 bg-lime-500 bg-opacity-5 border-lime-500 border-opacity-40 text-black z-10 rounded-md duration-500 overflow-hidden ${show_price ? "space-y-4 py-4 border " : "-space-y-10 py-0"} -left-12 `}>
+                                <h3
                                     onMouseEnter={() => setBorder("400-499")}
                                     onMouseLeave={() => setBorder("")}
-                                    className={({ isActive }) => `${isActive ? "" : ""} text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
-                                    $400-499
-                                    <span className={`${border === '400-499' ? "w-[74px]" : "w-0"} duration-300 h-[1px] bg-lime-500 -bottom-1 left-7 absolute`}></span>
-                                </NavLink>
-                                <NavLink
-                                    to="/rooms"
+                                    className={`text-lg relative text-center font-semibold  hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
+                                    400$ - 499$
+                                    <span className={`${border === "400-499" ? "w-24" : "w-0"} duration-300 h-[1px] bg-lime-600 bottom-0 py-0 px-0 left-8 absolute`}></span>
+                                </h3>
+                                <h3
                                     onMouseEnter={() => setBorder("300-399")}
                                     onMouseLeave={() => setBorder("")}
-                                    className={({ isActive }) => `${isActive ? "" : ""} text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
-                                    $300-399
-                                    <span className={`${border === '300-399' ? "w-[74px]" : "w-0"} duration-300 h-[1px] bg-lime-500 -bottom-1 left-7 absolute`}></span>
-                                </NavLink>
-                                <NavLink
-                                    to="/rooms"
+                                    className={`text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
+                                    300$ - 399$
+                                    <span className={`${border === "300-399" ? "w-24" : "w-0"} duration-300 h-[1px] bg-lime-600 bottom-0 py-0 px-0 left-8 absolute`}></span>
+                                </h3>
+                                <h3
+
                                     onMouseEnter={() => setBorder("200-299")}
                                     onMouseLeave={() => setBorder("")}
-                                    className={({ isActive }) => `${isActive ? "" : ""} text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
-                                    $200-299
-                                    <span className={`${border === '200-299' ? "w-[74px]" : "w-0"} duration-300 h-[1px] bg-lime-500 -bottom-1 left-7 absolute`}></span>
-                                </NavLink>
-                                <NavLink
-                                    to="/rooms"
+                                    className={`text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
+                                    200$ - 299$
+                                    <span className={`${border === "200-299" ? "w-24" : "w-0"} duration-300 h-[1px] bg-lime-600 bottom-0 py-0 px-0 left-8 absolute`}></span>
+                                </h3>
+                                <h3
                                     onMouseEnter={() => setBorder("100-199")}
                                     onMouseLeave={() => setBorder("")}
-                                    className={({ isActive }) => `${isActive ? "" : ""} text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
-                                    $100-199
-                                    <span className={`${border === '100-199' ? "w-[74px]" : "w-0"} duration-300 h-[1px] bg-lime-500 -bottom-1 left-7 absolute`}></span>
-                                </NavLink>
+                                    className={`text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
+                                    100$ - 199$
+                                    <span className={`${border === "100-199" ? "w-24" : "w-0"} duration-300 h-[1px] bg-lime-600 bottom-0 py-0 px-0 left-8 absolute`}></span>
+                                </h3>
                             </ul>
+
                         </NavLink>
                         {/* my bookings navlink */}
                         <NavLink
@@ -106,51 +101,46 @@ const Navbar = () => {
                                 </NavLink>
                                 {/* all rooms navlink */}
                                 <NavLink
+                                    to="/rooms"
 
                                     onMouseEnter={() => setShow_price(true)}
                                     onMouseLeave={() => setShow_price(false)}
-                                    className={`relative w-full text-center`}>
-                                    <NavLink
-                                        to="/rooms"
+                                    className={({ isActive }) => `text-lg font-semibold w-full text-center duration-300 hover:text-lime-600 relative ${isActive ? 'text-lime-600' : ''}`}>
+                                    Rooms
+                                    {/* all price div */}
 
-                                        className={({ isActive }) => `${isActive ? "text-lime-600" : ""} cursor-pointer text-lg font-semibold duration-300 overflow-hidden`}>
-                                        All Rooms
-                                    </NavLink>
-                                    <ul
-                                        className={`flex-col flex absolute w-32 border-lime-500 border-opacity-40 rounded-md duration-500 overflow-hidden ${show_price ? "space-y-4 py-4 border " : "-space-y-10 py-0"} left-36 top-0`}>
-                                        <NavLink
-                                            to="/rooms"
+                                    <ul className={`flex-col flex absolute w-40 bg-lime-500 bg-opacity-5 border-lime-500 border-opacity-40 text-black z-20 rounded-md duration-500 overflow-hidden ${show_price ? "space-y-4 py-4 border " : "-space-y-10 py-0"} -right-32 top-4`}>
+                                        <h3
                                             onMouseEnter={() => setBorder("400-499")}
                                             onMouseLeave={() => setBorder("")}
-                                            className={({ isActive }) => `${isActive ? "" : ""} text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
-                                            $400-499
-                                            <span className={`${border === '400-499' ? "w-[74px]" : "w-0"} duration-300 h-[1px] bg-lime-500 -bottom-1 left-7 absolute`}></span>
-                                        </NavLink>
-                                        <NavLink
-                                            to="/rooms"
+                                            className={`text-lg relative text-center font-semibold  hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
+                                            400$ - 499$
+                                            <span className={`${border === "400-499" ? "w-24" : "w-0"} duration-300 h-[1px] bg-lime-600 bottom-0 py-0 px-0 left-8 absolute`}></span>
+                                        </h3>
+                                        <h3
                                             onMouseEnter={() => setBorder("300-399")}
                                             onMouseLeave={() => setBorder("")}
-                                            className={({ isActive }) => `${isActive ? "" : ""} text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
-                                            $300-399
-                                            <span className={`${border === '300-399' ? "w-[74px]" : "w-0"} duration-300 h-[1px] bg-lime-500 -bottom-1 left-7 absolute`}></span>
-                                        </NavLink>
-                                        <NavLink
-                                            to="/rooms"
+                                            className={`text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
+                                            300$ - 399$
+                                            <span className={`${border === "300-399" ? "w-24" : "w-0"} duration-300 h-[1px] bg-lime-600 bottom-0 py-0 px-0 left-8 absolute`}></span>
+                                        </h3>
+                                        <h3
+
                                             onMouseEnter={() => setBorder("200-299")}
                                             onMouseLeave={() => setBorder("")}
-                                            className={({ isActive }) => `${isActive ? "" : ""} text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
-                                            $200-299
-                                            <span className={`${border === '200-299' ? "w-[74px]" : "w-0"} duration-300 h-[1px] bg-lime-500 -bottom-1 left-7 absolute`}></span>
-                                        </NavLink>
-                                        <NavLink
-                                            to="/rooms"
+                                            className={`text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
+                                            200$ - 299$
+                                            <span className={`${border === "200-299" ? "w-24" : "w-0"} duration-300 h-[1px] bg-lime-600 bottom-0 py-0 px-0 left-8 absolute`}></span>
+                                        </h3>
+                                        <h3
                                             onMouseEnter={() => setBorder("100-199")}
                                             onMouseLeave={() => setBorder("")}
-                                            className={({ isActive }) => `${isActive ? "" : ""} text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
-                                            $100-199
-                                            <span className={`${border === '100-199' ? "w-[74px]" : "w-0"} duration-300 h-[1px] bg-lime-500 -bottom-1 left-7 absolute`}></span>
-                                        </NavLink>
+                                            className={`text-lg relative text-center font-semibold hover:text-lime-600 duration-300 ${show_price ? '-mt-0' : "-mt-10"}`}>
+                                            100$ - 199$
+                                            <span className={`${border === "100-199" ? "w-24" : "w-0"} duration-300 h-[1px] bg-lime-600 bottom-0 py-0 px-0 left-8 absolute`}></span>
+                                        </h3>
                                     </ul>
+
                                 </NavLink>
                                 {/* my bookings navlink */}
                                 <NavLink
