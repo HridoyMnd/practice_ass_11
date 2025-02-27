@@ -87,9 +87,9 @@ const Navbar = () => {
                     <div
                         className="md:hidden relative"
                         onClick={() => setOpen_menu(!open_menu)}>
-                        <div className={`m-4 font-bold absolute -right-12 top-3`}>
+                        <div className={`m-4 font-bold absolute -right-12 top-3 z-10`}>
                             <ul
-                                className={`menu menu-sm shadow-md rounded-md dropdown-content py-4 space-y-3 items-center text-lg ${open_menu ? "flex" : "hidden"} font-semibold z-[1]  w-44 p-2 shadow`}>
+                                className={`menu menu-sm bg-lime-500 bg-opacity-5 border-lime-500 border border-opacity-30 rounded-md dropdown-content py-4 space-y-3 items-center text-lg ${open_menu ? "flex" : "hidden"} font-semibold z-[1]  w-44 p-2 shadow`}>
                                 {/* home navlink */}
                                 <NavLink
                                     to="/"

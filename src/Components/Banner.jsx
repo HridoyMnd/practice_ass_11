@@ -72,12 +72,14 @@ const Banner = () => {
                                     </motion.h1>
                                     {/* description section */}
                                     <motion.p
-                                        className='text-base max-sm:text-sm'
+                                        className='text-base max-sm:text-sm w-3/5 mx-auto'
                                         variants={FaidIn("left", 0.2, 250)}
                                         initial="hidden"
                                         whileInView={"show"}
                                         viewport={{ once: false, amount: 0.2 }}>
-                                        {img?.description}
+                                        {/* {img?.description} */}
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est ullam consequuntur nisi quas incidunt? Mollitia veritatis iure quas dolores maxime.
+                                        consequuntur nisi quas incidunt? Mollitia veritatis iure quas dolores maxime.
                                         
                                     </motion.p>
                                     {/* button secion */}
