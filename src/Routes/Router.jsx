@@ -3,6 +3,7 @@ import Layout from "../Layout/Layout";
 import Home from "../Pages/Home";
 import Rooms from "../Pages/Rooms";
 import My_bookings from "../Pages/My_bookings";
+import Room_details from "../Pages/Room_details";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: "/my_bookings",
                 element: <My_bookings/>
+            },
+            {
+                path: "/room_details/:id",
+                element: <Room_details/>
             }
         ]
 

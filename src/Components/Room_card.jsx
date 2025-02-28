@@ -36,7 +36,6 @@ const Room_card = ({ data }) => {
                 </div>
                 <div className="flex">
                     <h2 className="w-1/2">Rating :</h2>
-                    {/* <h2 className="w-1/2"> {rating}</h2> */}
                     <Rating
                         className="w-1/2"
                         style={{ maxWidth: 100 }}
