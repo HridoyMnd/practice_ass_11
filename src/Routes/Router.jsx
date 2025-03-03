@@ -5,6 +5,7 @@ import Rooms from "../Pages/Rooms";
 import My_bookings from "../Pages/My_bookings";
 import Room_details from "../Pages/Room_details";
 import Login_page from "../Pages/Login_page";
+import Register_page from "../Pages/Register_page";
 // import Login from "../Pages/Login";
 
 export const router = createBrowserRouter([
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login_page />
+            }, 
+            {
+                path: "/register",
+                element: <Register_page/>
             }
         ]
 

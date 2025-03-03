@@ -1,11 +1,18 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import '../Custom_css/Focus.css'
 import { Auth_context } from '../../Api/Context';
+import { IoIosEye, IoIosEyeOff } from 'react-icons/io';
 
 const Login_page = () => {
-    const { google_signIn } = useContext(Auth_context);
-    const handleSignInWithEmailPass = () => {
-        alert("I am email and pass button");
+    const { google_signIn, user_signIn } = useContext(Auth_context);
+    const [viewpass, setViewpass] = useState(false)
+    const handleSignIn = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const email = formData.get("email")
+        const password = formData.get("password")
+        // sing in with email and password
+        user_signIn(email, password)
     }
 
     return (
@@ -13,10 +20,13 @@ const Login_page = () => {
             <h2 className='text-2xl text-center font-bold'>
                 Login to your Account
             </h2>
-            <form action="" className=''>
+            <form
+                onSubmit={handleSignIn}
+                action="" className=''>
                 {/* email part */}
                 <div className="relative w-10/12 mx-auto mt-6">
                     <input type="email"
+                        name='email'
                         required
                         className=" w-full border rounded-md inp" />
                     <label
@@ -26,19 +36,27 @@ const Login_page = () => {
                 </div>
                 {/* password div */}
                 <div className="relative w-10/12 mx-auto mt-6">
-                    <input type="password"
+                    <input type={`${viewpass ? "text" : "password"}`}
+                        name='password'
                         required
                         className=" w-full border rounded-md inp" />
                     <label
                         className="lab text-lime-500 leading-none">
                         Enrer your password
                     </label>
+                    {/* password show icon */}
+                    <div
+                        onClick={() => setViewpass(!viewpass)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2">
+                        {
+                            viewpass ? <IoIosEyeOff className="cursor-pointer" /> : <IoIosEye className="cursor-pointer" />
+                        }
+                    </div>
                 </div>
                 {/* submit <button></button> */}
                 <button
-                    onClick={() => handleSignInWithEmailPass()}
                     className='py-2 w-3/5 mx-auto my-4 border rounded-md text-lg block font-bold bg-gradient-to-br from-lime-300 to-lime-950 hover:from-lime-200 duration-300 hover:to-lime-950 text-white'>
-                    Submit
+                    Login
                 </button>
             </form>
             <button
