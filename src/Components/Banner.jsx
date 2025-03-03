@@ -62,7 +62,7 @@ const Banner = () => {
                                 <div className=' bg-black bg-opacity-60 flex flex-col justify-center space-y-4 text-white text-lg font-semibold w-full h-full text-center '>
                                     {/* heading part */}
                                     <motion.h1
-                                        variants={FaidIn("right", 0.2, 250)}
+                                        variants={FaidIn("right", 0.2, 100)}
                                         initial="hidden"
                                         whileInView={"show"}
                                         viewport={{ once: false, amount: 0.1 }}
@@ -72,8 +72,8 @@ const Banner = () => {
                                     </motion.h1>
                                     {/* description section */}
                                     <motion.p
-                                        className='text-base max-sm:text-sm w-3/5 mx-auto'
-                                        variants={FaidIn("left", 0.2, 250)}
+                                        className='text-base max-sm:text-sm w-3/5 max-xs:w-[95%] mx-auto'
+                                        variants={FaidIn("left", 0.2, 100)}
                                         initial="hidden"
                                         whileInView={"show"}
                                         viewport={{ once: false, amount: 0.2 }}>
@@ -84,7 +84,7 @@ const Banner = () => {
                                     </motion.p>
                                     {/* button secion */}
                                     <motion.button
-                                        variants={FaidIn("up", 0.2, 50)}
+                                        variants={FaidIn("up", 0.2, 30)}
                                         initial="hidden"
                                         whileInView={"show"}
                                         viewport={{ once: false, amount: 0.2 }}

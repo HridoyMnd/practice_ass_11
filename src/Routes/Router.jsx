@@ -4,27 +4,33 @@ import Home from "../Pages/Home";
 import Rooms from "../Pages/Rooms";
 import My_bookings from "../Pages/My_bookings";
 import Room_details from "../Pages/Room_details";
+import Login_page from "../Pages/Login_page";
+// import Login from "../Pages/Login";
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element:<Layout/>,
+        element: <Layout />,
         children: [
             {
                 path: "/",
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: "/rooms",
-                element: <Rooms/>
+                element: <Rooms />
             },
             {
                 path: "/my_bookings",
-                element: <My_bookings/>
+                element: <My_bookings />
             },
             {
                 path: "/room_details/:id",
-                element: <Room_details/>
+                element: <Room_details />
+            },
+            {
+                path: "/login",
+                element: <Login_page />
             }
         ]
 

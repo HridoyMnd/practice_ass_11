@@ -14,42 +14,44 @@ const Room_card = ({ data }) => {
             variants={FaidIn("up", 0.2, 40)}
             initial="hidden"
             whileInView={"show"}
-            viewport={{once:false, amount: 0.2}}
+            viewport={{ once: false, amount: 0.2 }}
             className="p-3 rounded-md shadow-lg">
             {/* img div */}
             <div className="h-52 ">
                 <img src={image} alt="" className="object-cover w-full h-full rounded-md hover:scale-110 transition-all duration-300" />
             </div>
             {/* room info div */}
-            <div className="text-lg font-semibold mt-6 mb-3 ">
-                <div className="flex">
-                    <h2 className="w-1/2">Room Name :</h2>
-                    <h2 className="w-1/2"> {name}</h2>
+            <section className="flex flex-col justify-between">
+                <div className="text-lg max-sm:text-base font-semibold mt-6 mb-3 ">
+                    <div className="flex">
+                        <h2 className="w-1/2">Room Name :</h2>
+                        <h2 className="w-1/2"> {name}</h2>
+                    </div>
+                    <div className="flex">
+                        <h2 className="w-1/2">Location :</h2>
+                        <h2 className="w-1/2"> {location}</h2>
+                    </div>
+                    <div className="flex">
+                        <h2 className="w-1/2">Price :</h2>
+                        <h2 className="w-1/2"> {price} $</h2>
+                    </div>
+                    <div className="flex">
+                        <h2 className="w-1/2">Rating :</h2>
+                        <Rating
+                            className="w-1/2"
+                            style={{ maxWidth: 100 }}
+                            value={rating}
+                            readOnly
+                        />
+                    </div>
+                    <div className="flex">
+                        <h2 className="w-1/2">Room size :</h2>
+                        <h2 className="w-1/2"> {roomSize}</h2>
+                    </div>
                 </div>
-                <div className="flex">
-                    <h2 className="w-1/2">Location :</h2>
-                    <h2 className="w-1/2"> {location}</h2>
-                </div>
-                <div className="flex">
-                    <h2 className="w-1/2">Price :</h2>
-                    <h2 className="w-1/2"> {price} $</h2>
-                </div>
-                <div className="flex">
-                    <h2 className="w-1/2">Rating :</h2>
-                    <Rating
-                        className="w-1/2"
-                        style={{ maxWidth: 100 }}
-                        value={rating}
-                        readOnly
-                    />
-                </div>
-                <div className="flex">
-                    <h2 className="w-1/2">Room size :</h2>
-                    <h2 className="w-1/2"> {roomSize}</h2>
-                </div>
-            </div>
+                <Link className="py-2 w-full text-lg hover:bg-opacity-50 duration-300 bg-lime-500 bg-opacity-10 border-opacity-50 font-semibold block text-center mx-auto border border-lime-500 rounded-md">Book Now</Link>
+            </section>
             {/* book now button */}
-            <Link className="py-2 w-full text-lg hover:bg-opacity-50 duration-300 bg-lime-500 bg-opacity-10 border-opacity-50 font-semibold block text-center mx-auto border border-lime-500 rounded-md">Book Now</Link>
         </ motion.div>
     );
 };

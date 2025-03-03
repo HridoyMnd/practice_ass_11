@@ -1,18 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 import '../Custom_css/Hover.css'
+import { Auth_context } from "../../Api/Context";
 const Navbar = () => {
+
+    const { loading, user, user_signOut } = useContext(Auth_context);
     const [open_menu, setOpen_menu] = useState(false);
     const [show_price, setShow_price] = useState(false);
     const [border, setBorder] = useState("")
+
+    // loading state 
+    if (loading) {
+        return <span className="loading loading-bars loading-md block mx-auto min-h-screen"></span>
+    }
 
     return (
         <div>
             <div className="navbar bg-base-100">
                 {/* navbar start */}
                 <div className="navbar-start">
-                    <h2 className="text-3xl font-bold"><strong className="text-lime-600 cursor-pointer ">Luxe</strong>Stay</h2>
+                    <h2 className="max-exs:text-xl max-xs:text-2xl text-3xl font-bold"><strong className="text-lime-600 cursor-pointer ">Luxe</strong>Stay</h2>
                 </div>
                 {/* navbar center */}
                 <div
@@ -153,13 +161,22 @@ const Navbar = () => {
                                 </NavLink>
                             </ul>
                         </div>
-                        <FaBarsStaggered className="text-xl cursor-pointer hover:text-lime-600 duration-300" />
+                        <FaBarsStaggered className="text-xl max-exs:text-lg cursor-pointer hover:text-lime-600 duration-300" />
                     </div>
                     <div>
-                        <Link
-                            className="mBtn relative text-lg duration-300 text-white font-semibold py-2 rounded-md bg-lime-600 bg-opacity-70 hover:bg-opacity-20 hover:text-black px-10 ">
-                            Login
-                        </Link>
+                        {
+                            user ?
+                                <Link
+                                    onClick={() => user_signOut()}
+                                    className="mBtn relative text-lg max-exs:text-base duration-300 text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:bg-no hover:text-black px-8 max-exs:px-3 max-xs:px-4 hover:bg-none ">
+                                    Log Out
+                                </Link> :
+                                <Link
+                                    to="/login"
+                                    className="mBtn relative text-lg max-exs:text-base duration-300 text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:bg-no hover:text-black px-10 max-exs:px-5 max-xs:px-8 hover:bg-none ">
+                                    Login
+                                </Link>
+                        }
                     </div>
                 </div>
             </div>

@@ -1,0 +1,54 @@
+import { useContext } from 'react';
+import '../Custom_css/Focus.css'
+import { Auth_context } from '../../Api/Context';
+
+const Login_page = () => {
+    const { google_signIn } = useContext(Auth_context);
+    const handleSignInWithEmailPass = () => {
+        alert("I am email and pass button");
+    }
+
+    return (
+        <div className=' border shadow-lg w-2/6 mx-auto py-5 rounded-md'>
+            <h2 className='text-2xl text-center font-bold'>
+                Login to your Account
+            </h2>
+            <form action="" className=''>
+                {/* email part */}
+                <div className="relative w-10/12 mx-auto mt-6">
+                    <input type="email"
+                        required
+                        className=" w-full border rounded-md inp" />
+                    <label
+                        className="lab text-lime-500 leading-none">
+                        Enrer your email
+                    </label>
+                </div>
+                {/* password div */}
+                <div className="relative w-10/12 mx-auto mt-6">
+                    <input type="password"
+                        required
+                        className=" w-full border rounded-md inp" />
+                    <label
+                        className="lab text-lime-500 leading-none">
+                        Enrer your password
+                    </label>
+                </div>
+                {/* submit <button></button> */}
+                <button
+                    onClick={() => handleSignInWithEmailPass()}
+                    className='py-2 w-3/5 mx-auto my-4 border rounded-md text-lg block font-bold bg-gradient-to-br from-lime-300 to-lime-950 hover:from-lime-200 duration-300 hover:to-lime-950 text-white'>
+                    Submit
+                </button>
+            </form>
+            <button
+                onClick={() => google_signIn()}
+                className='py-2 w-44 mx-auto border rounded-md block'>
+                Google
+            </button>
+
+        </div>
+    );
+};
+
+export default Login_page;
