@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Auth_context } from "../../Api/Context";
+import { Auth_context } from "../Api/Context";
 import { IoIosEye } from "react-icons/io";
 import { IoIosEyeOff } from "react-icons/io";
 

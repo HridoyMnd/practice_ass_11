@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import '../Custom_css/Focus.css'
-import { Auth_context } from '../../Api/Context';
+import { Auth_context } from '../Api/Context';
 import { IoIosEye, IoIosEyeOff } from 'react-icons/io';
 
 const Login_page = () => {
@@ -30,7 +30,7 @@ const Login_page = () => {
                         required
                         className=" w-full border rounded-md inp" />
                     <label
-                        className="lab text-lime-500 leading-none">
+                        className="lab text-lime-500 leading-none bg-white">
                         Enrer your email
                     </label>
                 </div>
@@ -41,7 +41,7 @@ const Login_page = () => {
                         required
                         className=" w-full border rounded-md inp" />
                     <label
-                        className="lab text-lime-500 leading-none">
+                        className="lab text-lime-500 leading-none bg-white">
                         Enrer your password
                     </label>
                     {/* password show icon */}

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Auth_context } from "../Api/Context";
+// import { Auth_context } from "../../Api/Context";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { auth } from "../src/Firebase/firebase.config";
+import { auth } from "../Firebase/firebase.config";
+import { Auth_context } from "../Api/Context";
 
 // eslint-disable-next-line react/prop-types
 const Auth_provider = ({ children }) => {

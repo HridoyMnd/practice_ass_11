@@ -1,7 +1,9 @@
 
 import { Outlet } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
-import Auth_provider from "../../Provider/Auth_provider";
+import Auth_provider from "../Provider/Auth_provider";
+import Footer from "../Components/Footer";
+
 
 const Layout = () => {
     return (
@@ -9,6 +11,7 @@ const Layout = () => {
             <Auth_provider>
                 <Navbar />
                 <Outlet />
+                <Footer />
             </Auth_provider>
         </div>
     );

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 import '../Custom_css/Hover.css'
-import { Auth_context } from "../../Api/Context";
+import { Auth_context } from "../Api/Context";
 const Navbar = () => {
 
     const { loading, user, user_signOut } = useContext(Auth_context);
@@ -168,12 +168,12 @@ const Navbar = () => {
                             user ?
                                 <Link
                                     onClick={() => user_signOut()}
-                                    className="mBtn relative text-lg max-exs:text-base duration-500 ease-in-out text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:bg-no hover:text-black px-8 max-exs:px-3 max-xs:px-4 hover:bg-none ">
+                                    className="mBtn relative text-lg before:rounded-md max-exs:text-base duration-500 ease-in-out text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:bg-no hover:text-black px-8 max-exs:px-3 max-xs:px-4 hover:bg-none ">
                                     Log Out
                                 </Link> :
                                 <Link
                                     to="/login"
-                                    className="mBtn relative text-lg max-exs:text-base duration-500 ease-in-out text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:bg-no hover:text-black px-10 max-exs:px-5 max-xs:px-8 hover:bg-none ">
+                                    className="mBtn relative text-lg max-exs:text-base before:rounded-md duration-500 ease-in-out text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:bg-no hover:text-black px-10 max-exs:px-5 max-xs:px-8 hover:bg-none ">
                                     Login
                                 </Link>
                         }

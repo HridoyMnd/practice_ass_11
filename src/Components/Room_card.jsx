@@ -6,9 +6,8 @@ import { FaidIn } from './Varient';
 
 // eslint-disable-next-line react/prop-types
 const Room_card = ({ data }) => {
-    console.log(data);
     // eslint-disable-next-line react/prop-types
-    const { image, name, location, price, roomSize, rating } = data;
+    const { image, name, location, price, roomSize, rating, _id } = data;
     return (
         < motion.div
             variants={FaidIn("up", 0.2, 40)}
@@ -49,7 +48,11 @@ const Room_card = ({ data }) => {
                         <h2 className="w-1/2"> {roomSize}</h2>
                     </div>
                 </div>
-                <Link className="py-2 w-full text-lg hover:bg-opacity-50 duration-300 bg-lime-500 bg-opacity-10 border-opacity-50 font-semibold block text-center mx-auto border border-lime-500 rounded-md">Book Now</Link>
+                <Link
+                to={`/room_details/${_id}`}
+                    className="py-2 w-full text-lg hover:bg-opacity-50 duration-300 bg-lime-500 bg-opacity-10 border-opacity-50 font-semibold block text-center mx-auto border border-lime-500 rounded-md">
+                    Book Now
+                </Link>
             </section>
             {/* book now button */}
         </ motion.div>
