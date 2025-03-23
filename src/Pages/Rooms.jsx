@@ -9,7 +9,7 @@ const Rooms = () => {
     const { All_rooms } = useBook();
     console.log(All_rooms);
     return (
-        <div>
+        <div className="my-10">
             <div className="grid grid-cols-3 gap-14">
                 {
                     All_rooms.map(data =>

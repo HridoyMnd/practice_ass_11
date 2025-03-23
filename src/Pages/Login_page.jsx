@@ -16,7 +16,7 @@ const Login_page = () => {
     }
 
     return (
-        <div className=' border shadow-lg w-2/6 mx-auto py-5 rounded-md'>
+        <div className=' border shadow-lg w-2/6 mx-auto py-5 my-10 rounded-md'>
             <h2 className='text-2xl text-center font-bold'>
                 Login to your Account
             </h2>

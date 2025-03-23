@@ -1,14 +1,30 @@
 import { useParams } from "react-router-dom";
 import useBook from "../Hooks/useBook";
 import { Rating } from "@smastrom/react-rating";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import Review_slider from "../Components/Review_slider";
+import { RxCross1 } from "react-icons/rx";
+import { Auth_context } from "../Api/Context";
+// import { FaCaretDown } from "react-icons/fa";
 
 
 const Room_details = () => {
     const [details, setDetails] = useState({})
     const [loading, setLoading] = useState(true)
+    const [showModal, setShowModal] = useState(false)
+    const {user} = useContext(Auth_context);
     const { All_rooms } = useBook();
     const { id } = useParams();
+
+
+    // handle booking confirm
+    const handleBooking = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const date = formData.get("date")
+        console.log(date);
+    }
+
     // data load with page render
     useEffect(() => {
         const data = All_rooms.find(item => item?._id === id)
@@ -102,6 +118,68 @@ const Room_details = () => {
                         </p>
                     </div>
                 </div>
+            </div>
+
+            {/* review modal button */}
+            <button
+                onClick={() => setShowModal(true)}
+                className="block mx-auto w-40 bg-gradient-to-br from-lime-300 to-lime-950 before:rounded-md after:rounded-md duration-500 border py-2 rounded-md mt-8 text-lg font-bold relative mBtn text-white hover:bg-none  hover:text-lime-600">
+                Book Now
+            </button>
+            {/* confirm modal */}
+            <div
+                className={`fixed inset-0 z-30 items-center justify-center bg-black bg-opacity-50
+             ${showModal ? "block" : "hidden"}`}>
+                <div className="bg-white p-3 top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 relative rounded-lg w-1/3 text-center">
+                    <h2 className="text-xl font-semibold">Wellcome To</h2>
+                    <h2 className="text-2xl font-bold text-red-500">{name}</h2>
+                    <div className="flex justify-between items-center text-lg font-semibold px-5 my-3 ">
+                        <h2>Price: ${price}</h2>
+                        <h2>Location: {location}</h2>
+                    </div>
+                    <p className="text-left mx-4">{description}</p>
+                    {/* Date Picker Section */}
+                    <form
+                        onSubmit={handleBooking}>
+                        <div
+                            className="relative w-10/12 mx-auto mt-6">
+                            <input type="date"
+                                name="date"
+                                required
+                                placeholder=""
+                                className=" w-full border focus:border-lime-600 valid:border-lime-600 rounded-md inp" />
+                            <label
+                                className="lab text-lime-500 leading-none bg-white">
+                               Booking chick in date
+                            </label>
+                        </div>
+                        <div
+                            className="relative w-10/12 mx-auto mt-6">
+                            <input type="date"
+                                name="date"
+                                required
+                                placeholder=""
+                                className=" w-full border focus:border-lime-600 valid:border-lime-600 rounded-md inp" />
+                            <label
+                                className="lab text-lime-500 leading-none bg-white">
+                                Booking checkout date
+                            </label>
+                        </div>
+                        <button
+                            onClick={() => setShowModal(false)}
+                            className="block mx-auto w-40 bg-gradient-to-br from-lime-300 to-lime-950 before:rounded-md after:rounded-md duration-500 border py-2 rounded-md mt-8 text-lg font-bold relative mBtn text-white hover:bg-none  hover:text-lime-600">
+                            Confirm
+                        </button>
+                    </form>
+
+
+                    <RxCross1 onClick={() => setShowModal(false)} className="top-2 right-3 absolute cursor-pointer hover:text-lg duration-300 hover:text-red-500" />
+                </div>
+            </div>
+
+            {/* product review slider here */}
+            <div className="mb-10">
+                <Review_slider />
             </div>
         </div>
     );

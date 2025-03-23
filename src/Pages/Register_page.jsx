@@ -17,7 +17,7 @@ const Register_page = () => {
     }
 
     return (
-        <div>
+        <div className="my-10">
             <div className=' border shadow-lg w-2/6 mx-auto py-5 rounded-md'>
                 <h2 className='text-2xl text-center font-bold'>
                     Register your Account

@@ -173,7 +173,7 @@ const Navbar = () => {
                                 </Link> :
                                 <Link
                                     to="/login"
-                                    className="mBtn relative text-lg max-exs:text-base before:rounded-md duration-500 ease-in-out text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:bg-no hover:text-black px-10 max-exs:px-5 max-xs:px-8 hover:bg-none ">
+                                    className="mBtn relative text-lg max-exs:text-base before:rounded-md after:rounded-md duration-500 ease-in-out text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:text-lime-600 px-10 max-exs:px-5 max-xs:px-8 hover:bg-none ">
                                     Login
                                 </Link>
                         }

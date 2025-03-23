@@ -65,7 +65,10 @@ const Footer = () => {
                                     Enrer your email
                                 </label>
                             </div>
-                            <button type='submit' className={`w-32 text-lg rounded-r-full hover:text-lime-600 duration-300 font-semibold border `}>Subscribe</button>
+                            <button type='submit' 
+                            className={`w-32 text-lg text-lime-600 rounded-r-full hover:text-lime-600 duration-300 font-semibold border `}>
+                                Subscribe
+                                </button>
                         </form>
                     </div>
 
