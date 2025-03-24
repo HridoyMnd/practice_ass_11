@@ -6,6 +6,7 @@ import My_bookings from "../Pages/My_bookings";
 import Room_details from "../Pages/Room_details";
 import Login_page from "../Pages/Login_page";
 import Register_page from "../Pages/Register_page";
+import PrivateRoute from "./PrivateRoute";
 // import Login from "../Pages/Login";
 
 export const router = createBrowserRouter([
@@ -23,11 +24,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/my_bookings",
-                element: <My_bookings />
+                element: <PrivateRoute><My_bookings /></PrivateRoute>
             },
             {
                 path: "/room_details/:id",
-                element: <Room_details />
+                element: <PrivateRoute><Room_details /></PrivateRoute>
             },
             {
                 path: "/login",

@@ -9,10 +9,12 @@ const My_bookings = () => {
           <thead>
             <tr>
               <th className="text-lg font-medium text-center">Name & price</th>
-              <th className="text-lg font-medium text-center">Location</th>
-              <th className="text-lg font-medium text-center">Details Button</th>
+              <th className="text-lg font-medium text-center">
+                Details Button
+              </th>
               <th className="text-lg font-medium text-center">Update Button</th>
               <th className="text-lg font-medium text-center">Delete Button</th>
+              <th className="text-lg font-medium text-center">Reivew Button</th>
             </tr>
           </thead>
           <tbody>
@@ -35,21 +37,35 @@ const My_bookings = () => {
                   </section>
                 </div>
               </td>
-              {/* locaion */}
-              <td className="">
-                <h2 className="font-medium text-lg text-center">Dhaka</h2>
-              </td>
               {/* details button */}
               <td className="">
-                <Link to='/' className="w-32 hover:border-lime-600 hover:text-lime-600 duration-300 border rounded-md mx-auto py-2 block text-center text-base font-semibold">Details</Link>
+                <Link
+                  to="/"
+                  className="w-32 hover:border-lime-600 hover:text-lime-600 duration-300 border rounded-md mx-auto py-2 block text-center text-base font-semibold"
+                >
+                  Details
+                </Link>
               </td>
               {/* update button */}
               <td className="">
-                <Link to='/' className="w-32 hover:border-amber-600 hover:text-amber-600 duration-300 border rounded-md py-2 block mx-auto text-center text-base font-semibold">Update</Link>
+                <Link
+                  to="/"
+                  className="w-32 hover:border-amber-600 hover:text-amber-600 duration-300 border rounded-md py-2 block mx-auto text-center text-base font-semibold"
+                >
+                  Update
+                </Link>
               </td>
               {/* delete button */}
               <td className="">
-                <button className="w-32 hover:border-red-600 hover:text-red-500 duration-300 font-semibold text-base block mx-auto border py-2 rounded-md">Delete</button>
+                <button className="w-32 hover:border-red-600 hover:text-red-500 duration-300 font-semibold text-base block mx-auto border py-2 rounded-md">
+                  Delete
+                </button>
+              </td>
+              {/* locaion */}
+              <td className="">
+                <button className="w-32 hover:border-lime-600 hover:text-lime-600 duration-300 font-semibold text-base block mx-auto border py-2 rounded-md">
+                  Delete
+                </button>
               </td>
             </tr>
           </tbody>
