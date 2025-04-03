@@ -5,6 +5,7 @@ import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { FcGoogle } from "react-icons/fc";
 
 const Login_page = () => {
   const { google_signIn, user_signIn } = useContext(Auth_context);
@@ -26,6 +27,14 @@ const Login_page = () => {
         timer: 2000,
       });
       navigate(from, {replace:true})
+    })
+    .catch((err) => {
+      Swal.fire({
+        title: "User Login Failed",
+        text: err,
+        icon: "error",
+        timer: 2000,
+      });
     });
   };
 
@@ -77,12 +86,13 @@ const Login_page = () => {
           Login
         </button>
       </form>
-      <button
-        onClick={google_signIn}
-        className="py-2 w-44 mx-auto border rounded-md block"
-      >
-        Google
-      </button>
+        <button
+          onClick={google_signIn}
+          className="py-2 w-44 mx-auto border rounded-md text-lg hover:text-lime-600 flex items-center justify-center gap-3 hover:border-lime-600 duration-300"
+        >
+          <FcGoogle />
+          <h2>Google</h2>
+        </button>
       {/* signup link */}
       <div className="flex items-center justify-center gap-3 my-4">
         <h4>Have not any accout ?</h4>

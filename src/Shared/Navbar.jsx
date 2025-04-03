@@ -168,7 +168,7 @@ const Navbar = () => {
                             user ?
                                 <Link
                                     onClick={() => user_signOut()}
-                                    className="mBtn relative text-lg before:rounded-md max-exs:text-base duration-500 ease-in-out text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:bg-no hover:text-black px-8 max-exs:px-3 max-xs:px-4 hover:bg-none ">
+                                    className="mBtn relative text-lg before:rounded-md max-exs:text-base after:rounded-md duration-500 ease-in-out text-white font-semibold py-2 rounded-md bg-gradient-to-br from-lime-300 to-lime-950 hover:bg-no hover:text-black px-8 max-exs:px-3 max-xs:px-4 hover:bg-none ">
                                     Log Out
                                 </Link> :
                                 <Link

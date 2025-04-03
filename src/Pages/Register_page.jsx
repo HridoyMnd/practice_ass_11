@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Auth_context } from "../Api/Context";
 import { IoIosEye } from "react-icons/io";
 import { IoIosEyeOff } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
@@ -10,8 +10,8 @@ import { Helmet } from "react-helmet";
 
 const Register_page = () => {
   const [viewpass, setViewpass] = useState(false);
-  const { create_user, google_signIn, profileUpdate } =
-    useContext(Auth_context);
+  const navigate = useNavigate();
+  const { create_user, google_signIn, profileUpdate } = useContext(Auth_context);
   // get form info
   const handleRegister = (e) => {
     e.preventDefault();
@@ -31,14 +31,25 @@ const Register_page = () => {
       });
       return;
     }
-    create_user(email, password, name, photo).then(() => {
-      Swal.fire({
-        title: "User Create Successful",
-        text: "Wellcome to dashboard",
-        icon: "success",
-        timer: 2000
+    create_user(email, password)
+      .then(() => {
+        Swal.fire({
+          title: "User Create Successful",
+          text: "Wellcome to dashboard",
+          icon: "success",
+          timer: 2000,
+        });
+        navigate("/")
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "User Create Failed",
+          text: err,
+          icon: "error",
+          timer: 2000,
+        });
       });
-    });
     profileUpdate({ displayName: name, photoURL: photo });
   };
 
