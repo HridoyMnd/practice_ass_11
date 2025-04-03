@@ -4,12 +4,19 @@ import useBook from "../Hooks/useBook";
 import { FaidIn } from "../Components/Varient";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Rooms = () => {
     const { All_rooms } = useBook();
     console.log(All_rooms);
     return (
         <div className="my-10">
+            {/* helmet */}
+            <Helmet>
+                <title>
+                    All Room Page
+                </title>
+            </Helmet>
             <div className="grid grid-cols-3 gap-14">
                 {
                     All_rooms.map(data =>

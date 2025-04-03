@@ -5,6 +5,7 @@ import { IoIosEyeOff } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 // import { updateProfile } from "firebase/auth";
 
 const Register_page = () => {
@@ -43,6 +44,10 @@ const Register_page = () => {
 
   return (
     <div className="my-10">
+      {/* helmet */}
+      <Helmet>
+        <title>Register Page</title>
+      </Helmet>
       <div className=" border shadow-lg w-2/6 mx-auto py-5 rounded-md">
         <h2 className="text-2xl text-center font-bold">
           Register your Account

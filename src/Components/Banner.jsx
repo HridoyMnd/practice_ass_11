@@ -6,7 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from "framer-motion";
 import { FaidIn } from './Varient';
 import { Link } from 'react-router-dom';
+// import { Helmet } from 'react-helmet';
 const Banner = () => {
+
+
     // banner img, title and sort description here
     const banner_images = [
         {
@@ -43,6 +46,10 @@ const Banner = () => {
 
     return (
         <>
+{/* 
+        <Helmet>
+            <title>Home || Banner</title>
+        </Helmet> */}
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}

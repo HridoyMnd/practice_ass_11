@@ -1,5 +1,6 @@
 // import { useState } from 'react';
 // import logo from '../assets/logo_2.png'
+// import { Helmet } from "react-helmet";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -15,6 +16,10 @@ const Footer = () => {
     }
     return (
         <div className='bg-gray-700 text-white py-3'>
+            {/* helmet
+            <Helmet>
+                <title>Home || Footer</title>
+            </Helmet> */}
             {/* logo section */}
             <section className=' text-center'>
                 {/* <img src={logo} alt="" className='w-24 mx-auto' /> */}

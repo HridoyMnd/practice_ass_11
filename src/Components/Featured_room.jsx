@@ -3,6 +3,7 @@ import useAxiso from "../Hooks/useAxios";
 import Room_card from "./Room_card";
 import { motion } from "framer-motion";
 import { FaidIn } from './Varient';
+// import { Helmet } from "react-helmet";
 
 const Featured_room = () => {
     const [featured_room, setFeatured_room] = useState([]);
@@ -20,6 +21,12 @@ const Featured_room = () => {
 
     return (
         <div className="my-10">
+            {/* helmet
+            <Helmet>
+                <title>
+                    Home || Featured Room
+                </title>
+            </Helmet> */}
             {/* featured room heading title and description */}
             <div className="w-9/12 max-sm:w-10/12 mx-auto text-center">
                 <motion.h1

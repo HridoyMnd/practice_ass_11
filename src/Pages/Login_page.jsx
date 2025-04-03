@@ -2,12 +2,16 @@ import { useContext, useState } from "react";
 import "../Custom_css/Focus.css";
 import { Auth_context } from "../Api/Context";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Login_page = () => {
   const { google_signIn, user_signIn } = useContext(Auth_context);
   const [viewpass, setViewpass] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleSignIn = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -21,11 +25,16 @@ const Login_page = () => {
         icon: "success",
         timer: 2000,
       });
+      navigate(from, {replace:true})
     });
   };
 
   return (
     <div className=" border shadow-lg w-2/6 mx-auto py-5 my-10 rounded-md">
+      {/* helmet implement */}
+      <Helmet>
+        <title>Login Page</title>
+      </Helmet>
       <h2 className="text-2xl text-center font-bold">Login to your Account</h2>
       <form onSubmit={handleSignIn} action="" className="">
         {/* email part */}

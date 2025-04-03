@@ -5,9 +5,14 @@ import { Autoplay } from 'swiper/modules';
 import Review_card from './Review_card';
 import { FaidIn } from './Varient';
 import { motion } from "framer-motion";
+// import { Helmet } from 'react-helmet';
 const Review_slider = () => {
     return (
         <div>
+            {/* helmet
+            <Helmet>
+                <title>Home || Review Slider</title>
+            </Helmet> */}
             {/* review header  */}
             <div className="w-full text-center mx-auto my-10">
                 <motion.h2

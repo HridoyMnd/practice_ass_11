@@ -2,9 +2,11 @@ import { RiDoubleQuotesL } from "react-icons/ri";
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css'
 import log_img from '../assets/react.svg';
+
 const Review_card = () => {
     return (
         <div className="border shadow-md rounded-md px-6 py-2">
+
             {/* comment header section */}
             <div className="flex items-center justify-between">
                 <RiDoubleQuotesL />

@@ -1,8 +1,15 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const My_bookings = () => {
   return (
     <div className="my-10 border rounded-md shadow-lg">
+      {/* helmet */}
+      <Helmet>
+        <title>
+          My Booking Page
+        </title>
+      </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
