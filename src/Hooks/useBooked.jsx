@@ -30,8 +30,16 @@ const useBooked = () => {
     return data.data;
   };
 
+  //   update booking date
+  const cancelBooking = async (roomId) => {
+    const data = await useAxios.delete(`/booking_cancel/${roomId}`);
+    refetch();
+    return data.data;
+  };
+
   return {
     BookedRoom,
+    cancelBooking,
     updateDate,
     // checkAvailable,
     addnewBooking,

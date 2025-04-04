@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import useBooked from "../Hooks/useBooked";
 
 const My_bookings = () => {
-  const {BookedRoom} = useBooked()
+  const {BookedRoom, cancelBooking} = useBooked()
+
+// handle booking cancel
+const handleCancelBooking = (roomId) => {
+  cancelBooking(roomId)
+}
+
+
   return (
     <div className="my-10 border rounded-md shadow-lg">
       {/* helmet */}
@@ -68,8 +75,10 @@ const My_bookings = () => {
     </td>
     {/* delete button */}
     <td className="">
-      <button className="w-32 hover:border-red-600 hover:text-red-500 duration-300 font-semibold text-base block mx-auto border py-2 rounded-md">
-        Delete
+      <button 
+      onClick={() => handleCancelBooking(item?.id)}
+      className="w-32 hover:border-red-600 hover:text-red-500 duration-300 font-semibold text-base block mx-auto border py-2 rounded-md">
+        Cancel
       </button>
     </td>
     {/* locaion */}
