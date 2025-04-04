@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const useAxiso = axios.create({
+const useAxios = axios.create({
     baseURL: "http://localhost:4120",
     timeout: 5000,
     headers: {
         "Content-Type": "application/json"
     }
 })
-export default useAxiso;
+export default useAxios;

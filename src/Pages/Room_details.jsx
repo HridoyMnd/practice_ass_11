@@ -1,31 +1,24 @@
 import { useParams } from "react-router-dom";
-import useBook from "../Hooks/useBook";
 import { Rating } from "@smastrom/react-rating";
 import { useEffect, useState } from "react";
 import Review_slider from "../Components/Review_slider";
 import { RxCross1 } from "react-icons/rx";
-import DatePicker from "react-datepicker";
 import { Helmet } from "react-helmet";
+import useRoom from "../Hooks/useRoom";
+import useBooked from "../Hooks/useBooked";
 
 const Room_details = () => {
+  const { addnewBooking } = useBooked();
   // booking date state
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
+
   //
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const { All_rooms } = useBook();
+  const { All_rooms } = useRoom();
   const { id } = useParams();
-
-  // handle booking confirm
-//   const handleBooking = (e) => {
-//     e.preventDefault();
-//     const formData = new FormData(e.target);
-//     const date1 = formData.get("date1");
-//     const date2 = formData.get("date2");
-//     console.log(date1, date2);
-//   };
 
   // data load with page render
   useEffect(() => {
@@ -50,6 +43,13 @@ const Room_details = () => {
     amenities,
   } = details;
 
+  // handle booked data store in database
+  const bookingData = { image, location, name, checkInDate, checkOutDate, id };
+  const handlePostBookedData = () => {
+    addnewBooking(bookingData);
+    setShowModal(false);
+  };
+
   if (loading || !amenities) {
     return <p>Loading....</p>;
   }
@@ -58,9 +58,7 @@ const Room_details = () => {
     <div>
       {/* helmet */}
       <Helmet>
-        <title>
-          Room Details
-        </title>
+        <title>Room Details</title>
       </Helmet>
       <div className="border p-4 rounded-md shadow-lg flex max-md:flex-col gap-4">
         {/* room image */}
@@ -157,88 +155,41 @@ const Room_details = () => {
             <h2>Location: {location}</h2>
           </div>
           <p className="text-left mx-4">{description}</p>
-          {/* Date Picker Section */}
-          {/* <form
-                        onSubmit={handleBooking}>
-                        <div
-                            className="relative w-10/12 mx-auto mt-6">
-                            <input type="date"
-                                name="date1"
-                                required
-                                placeholder=""
-                                className=" w-full border focus:border-lime-600 valid:border-lime-600 rounded-md inp" />
-                            <label
-                                className="lab text-lime-500 leading-none bg-white">
-                               Booking chick in date
-                            </label>
-                        </div>
-                        <div
-                            className="relative w-10/12 mx-auto mt-6">
-                            <input type="date"
-                                name="date2"
-                                required
-                                placeholder=""
-                                className=" w-full border focus:border-lime-600 valid:border-lime-600 rounded-md inp" />
-                            <label
-                                className="lab text-lime-500 leading-none bg-white">
-                                Booking checkout date
-                            </label>
-                        </div>
-                        <button
-                            onClick={() => setShowModal(false)}
-                            className="block mx-auto w-40 bg-gradient-to-br from-lime-300 to-lime-950 before:rounded-md after:rounded-md duration-500 border py-2 rounded-md mt-8 text-lg font-bold relative mBtn text-white hover:bg-none  hover:text-lime-600">
-                            Confirm
-                        </button>
-                    </form> */}
-          {/* booking date from date picker */}
-          <div className="space-y-4 p-4 max-w-md mx-auto">
-            <div className="space-y-2">
-              <label
-                htmlFor="check-in"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Check-in Date
-              </label>
-              <DatePicker
-                id="check-in"
-                selected={checkInDate}
-                onChange={(date) => {
-                  setCheckInDate(date);
-                  if (checkOutDate && date > checkOutDate) {
-                    setCheckOutDate(null);
-                  }
-                }}
-                selectsStart
-                startDate={checkInDate}
-                endDate={checkOutDate}
-                minDate={new Date()}
-                placeholderText="Select check-in date"
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+
+          {/* booking field */}
+          <div>
+            {/* checkin date field */}
+            <div className="relative w-10/12 mx-auto mt-6">
+              <input
+                type="date"
                 required
+                onChange={(e) => setCheckInDate(e.target.value)}
+                className=" w-full border rounded-md inp"
               />
+              <label className="lab text-lime-500 leading-none bg-white">
+                Enrer your checkin date
+              </label>
+            </div>
+            {/* checkout date field */}
+            <div className="relative w-10/12 mx-auto mt-6">
+              <input
+                type="date"
+                required
+                onChange={(e) => setCheckOutDate(e.target.value)}
+                className=" w-full border rounded-md inp"
+              />
+              <label className="lab text-lime-500 leading-none bg-white">
+                Enrer your checkin date
+              </label>
             </div>
 
-            <div className="space-y-2">
-              <label
-                htmlFor="check-out"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Check-out Date
-              </label>
-              <DatePicker
-                id="check-out"
-                selected={checkOutDate}
-                onChange={(date) => setCheckOutDate(date)}
-                selectsEnd
-                startDate={checkInDate}
-                endDate={checkOutDate}
-                minDate={checkInDate || new Date()}
-                placeholderText="Select check-out date"
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                disabled={!checkInDate}
-                required
-              />
-            </div>
+            {/* Confirm button */}
+            <button
+              onClick={handlePostBookedData}
+              className={`block mx-auto w-40 bg-gradient-to-br from-lime-300 to-lime-950 before:rounded-md after:rounded-md duration-500 border py-2 rounded-md mt-8 text-lg font-bold relative mBtn text-white hover:bg-none hover:text-lime-600`}
+            >
+              Confirm Now
+            </button>
           </div>
 
           <RxCross1

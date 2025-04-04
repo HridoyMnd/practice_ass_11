@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiso from "./useAxios";
+// import useAxiso from "./useAxios";
+import useAxios from "./useAxios";
 
 
-const useBook = () => {
+const useRoom = () => {
     const { data: All_rooms = [], refetch } = useQuery({
         queryKey: ["coupon"],
         queryFn: async () => {
-            const res = await useAxiso.get('/all_room')
+            const res = await useAxios.get('/all_room')
             return res.data;
         }
     })
@@ -17,4 +18,4 @@ const useBook = () => {
 
 };
 
-export default useBook;
+export default useRoom;
