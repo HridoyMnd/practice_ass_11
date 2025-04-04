@@ -1,18 +1,20 @@
 import { useParams } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Review_slider from "../Components/Review_slider";
 import { RxCross1 } from "react-icons/rx";
 import { Helmet } from "react-helmet";
 import useRoom from "../Hooks/useRoom";
 import useBooked from "../Hooks/useBooked";
+import { Auth_context } from "../Api/Context";
 
 const Room_details = () => {
   const { addnewBooking } = useBooked();
   // booking date state
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
-
+  const {user } = useContext(Auth_context);
+  const userUid = user?.uid;;
   //
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(true);
@@ -44,7 +46,7 @@ const Room_details = () => {
   } = details;
 
   // handle booked data store in database
-  const bookingData = { image, location, name, checkInDate, checkOutDate, id };
+  const bookingData = { image, location, name, checkInDate, checkOutDate, id, userUid };
   const handlePostBookedData = () => {
     addnewBooking(bookingData);
     setShowModal(false);

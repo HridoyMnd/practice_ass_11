@@ -73,7 +73,6 @@ const Auth_provider = ({ children }) => {
     loading,
     user,
   };
-  console.log(user?.displayName);
   return (
     <Auth_context.Provider value={authInfo}>{children}</Auth_context.Provider>
   );
