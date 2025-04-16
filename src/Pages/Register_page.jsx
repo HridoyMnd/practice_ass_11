@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import WebToken from "../Components/WebToken";
 // import { updateProfile } from "firebase/auth";
 
 const Register_page = () => {
@@ -32,7 +33,7 @@ const Register_page = () => {
       return;
     }
     create_user(email, password)
-      .then(() => {
+      .then((res) => {
         Swal.fire({
           title: "User Create Successful",
           text: "Wellcome to dashboard",
@@ -40,6 +41,9 @@ const Register_page = () => {
           timer: 2000,
         });
         navigate("/")
+
+        // json web token create here
+        WebToken(res.user.uid);
       })
       .catch((err) => {
         console.log(err);
@@ -52,6 +56,31 @@ const Register_page = () => {
       });
     profileUpdate({ displayName: name, photoURL: photo });
   };
+
+  // handle google sign In
+  const handleGoogleSingIn = () => {
+    google_signIn()
+      .then((res) => {
+        Swal.fire({
+          title: "User Login Successful",
+          text: "Wellcome to dashboard",
+          icon: "success",
+          timer: 2000,
+        });
+
+        // json web token  create this function
+        WebToken(res.user.uid);
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "User Login Failed",
+          text: err,
+          icon: "error",
+          timer: 2000,
+        });
+      });
+  };
+
 
   return (
     <div className="my-10">
@@ -129,7 +158,7 @@ const Register_page = () => {
           </button>
         </form>
         <button
-          onClick={google_signIn}
+          onClick={handleGoogleSingIn}
           className="py-2 w-44 mx-auto border rounded-md text-lg hover:text-lime-600 flex items-center justify-center gap-3 hover:border-lime-600 duration-300"
         >
           <FcGoogle />

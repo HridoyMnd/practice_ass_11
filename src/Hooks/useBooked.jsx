@@ -41,7 +41,6 @@ const useBooked = () => {
     BookedRoom,
     cancelBooking,
     updateDate,
-    // checkAvailable,
     addnewBooking,
     refetch,
   };

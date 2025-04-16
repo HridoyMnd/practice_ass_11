@@ -13,7 +13,6 @@ const UpdateBookingDate = () => {
   //   handle update booking date
   const handleUpdateBookingDate = () => {
     updateDate(updatedData, id)
-    // console.log(checkInDate, checkOutDate);
   };
 
   return (
