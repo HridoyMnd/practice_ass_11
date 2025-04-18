@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Auth_context } from "../Api/Context";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 
 const Review = () => {

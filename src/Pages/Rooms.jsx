@@ -8,7 +8,7 @@ import useRoom from "../Hooks/useRoom";
 
 const Rooms = () => {
   const { All_rooms } = useRoom();
-  console.log(All_rooms);
+  // console.log(All_rooms);
   return (
     <div className="my-10">
       {/* helmet */}
@@ -16,7 +16,7 @@ const Rooms = () => {
         <title>All Room Page</title>
       </Helmet>
       <div className="grid grid-cols-3 gap-14">
-        {All_rooms.map((data) => (
+        {All_rooms?.map((data) => (
           <Link
             to={`/room_details/${data?._id}`}
             className="hover:scale-105 transition-all duration-300 "

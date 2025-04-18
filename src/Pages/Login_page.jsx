@@ -6,7 +6,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import { FcGoogle } from "react-icons/fc";
-import WebToken from "../Components/WebToken";
+// import WebToken from "../Components/WebToken";
+import useAxios from "../Hooks/useAxios";
 
 const Login_page = () => {
   const { google_signIn, user_signIn } = useContext(Auth_context);
@@ -22,7 +23,7 @@ const Login_page = () => {
 
     // sing in with email and password
     user_signIn(email, password)
-      .then((res) => {
+      .then(() => {
         Swal.fire({
           title: "User Login Successful",
           text: "Wellcome to dashboard",
@@ -31,8 +32,17 @@ const Login_page = () => {
         });
         navigate(from, { replace: true });
 
+        // jot token create
+
+        // const user = res.user.email;
+        // useAxios.post("/jot", {user}).then((res) => {
+        //   console.log(res);
+        // });
+
         // json web token  create this function
-        WebToken(res.user.uid);
+        // const userUid = res.user.uid;
+        // console.log(userUid);
+        // WebToken({ userUid });
       })
       .catch((err) => {
         Swal.fire({
@@ -57,7 +67,24 @@ const Login_page = () => {
         navigate(from, { replace: true });
 
         // json web token  create this function
-        WebToken(res.user.uid);
+        // const user_email = {email:res.user.email}
+        // useAxios.post('/jwt_token', user_email, {
+        //   withCredentials:true
+        // })
+        // .then(res => {
+        //   console.log(res.data);
+        // })
+
+
+        const user = res.user.email;
+        useAxios.post("/jot", {user}, {
+          withCredentials:true
+        }).then((res) => {
+          console.log(res.data);
+        });
+
+
+
       })
       .catch((err) => {
         Swal.fire({

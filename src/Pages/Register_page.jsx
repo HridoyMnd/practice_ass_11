@@ -6,7 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
-import WebToken from "../Components/WebToken";
+// import WebToken from "../Components/WebToken";
+// import useAxios from "../Hooks/useAxios";
 // import { updateProfile } from "firebase/auth";
 
 const Register_page = () => {
@@ -33,7 +34,7 @@ const Register_page = () => {
       return;
     }
     create_user(email, password)
-      .then((res) => {
+      .then(() => {
         Swal.fire({
           title: "User Create Successful",
           text: "Wellcome to dashboard",
@@ -43,7 +44,9 @@ const Register_page = () => {
         navigate("/")
 
         // json web token create here
-        WebToken(res.user.uid);
+        // const userUid = res.user.uid;
+        // console.log(userUid);
+        // WebToken({ userUid });
       })
       .catch((err) => {
         console.log(err);
@@ -60,7 +63,7 @@ const Register_page = () => {
   // handle google sign In
   const handleGoogleSingIn = () => {
     google_signIn()
-      .then((res) => {
+      .then(() => {
         Swal.fire({
           title: "User Login Successful",
           text: "Wellcome to dashboard",
@@ -69,7 +72,10 @@ const Register_page = () => {
         });
 
         // json web token  create this function
-        WebToken(res.user.uid);
+        // const userUid = res.user.uid;
+        // const user_email = {email: res.user.email}
+        // useAxios.post('/jwt_token', user_email)
+        // WebToken({ userUid });
       })
       .catch((err) => {
         Swal.fire({
